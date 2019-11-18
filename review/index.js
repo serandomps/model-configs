@@ -20,7 +20,7 @@ module.exports = function (ctx, container, options, done) {
             $('.config-ok', sandbox).on('click', function () {
                 var thiz = $(this);
                 utils.loading();
-                utils.publish('accounts', 'configs', config, function (err) {
+                utils.publish('www', 'configs', config, function (err) {
                     utils.loaded();
                     if (err) {
                         return console.error(err);
