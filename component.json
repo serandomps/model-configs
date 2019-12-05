@@ -1,6 +1,6 @@
 {
-    "name": "configs",
-    "description": "configs component",
+    "name": "model-configs",
+    "description": "model-configs component",
     "scripts": [
         "index.js",
         "create/index.js",

@@ -3,7 +3,7 @@ var serand = require('serand');
 var utils = require('utils');
 var Page = require('../service');
 
-dust.loadSource(dust.compile(require('./template'), 'configs-review'));
+dust.loadSource(dust.compile(require('./template'), 'model-configs-review'));
 
 module.exports = function (ctx, container, options, done) {
     var sandbox = container.sandbox;
@@ -12,7 +12,7 @@ module.exports = function (ctx, container, options, done) {
             return done(err);
         }
         config = serand.pack(config, container);
-        dust.render('configs-review', config, function (err, out) {
+        dust.render('model-configs-review', config, function (err, out) {
             if (err) {
                 return done(err);
             }
@@ -38,7 +38,7 @@ module.exports = function (ctx, container, options, done) {
                 serand.redirect(options.location || '/configs');
             });
             done(null, function () {
-                $('.configs-review', sandbox).remove();
+                $('.model-configs-review', sandbox).remove();
             });
         });
     });

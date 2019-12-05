@@ -4,7 +4,7 @@ var utils = require('utils');
 var serand = require('serand');
 var Configs = require('../service');
 
-dust.loadSource(dust.compile(require('./template.html'), 'configs-create'));
+dust.loadSource(dust.compile(require('./template.html'), 'model-configs-create'));
 
 var configs = {
     name: {
@@ -97,7 +97,7 @@ var render = function (ctx, container, options, config, done) {
     cont._ = {
         parent: container.parent
     };
-    dust.render('configs-create', serand.pack(cont, container), function (err, out) {
+    dust.render('model-configs-create', serand.pack(cont, container), function (err, out) {
         if (err) {
             return done(err);
         }
@@ -120,7 +120,7 @@ var render = function (ctx, container, options, config, done) {
                     },
                     form: configsForm,
                     clean: function () {
-                        $('.configs-create', sandbox).remove();
+                        $('.model-configs-create', sandbox).remove();
                     }
                 });
                 return;
@@ -139,7 +139,7 @@ var render = function (ctx, container, options, config, done) {
             done(null, {
                 form: configsForm,
                 clean: function () {
-                    $('.configs-create', sandbox).remove();
+                    $('.model-configs-create', sandbox).remove();
                 }
             });
         });

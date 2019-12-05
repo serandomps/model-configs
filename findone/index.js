@@ -2,7 +2,7 @@ var dust = require('dust')();
 var serand = require('serand');
 var utils = require('utils');
 
-dust.loadSource(dust.compile(require('./template.html'), 'configs-findone'));
+dust.loadSource(dust.compile(require('./template.html'), 'model-configs-findone'));
 
 var findOne = function (id, done) {
     $.ajax({
@@ -24,7 +24,7 @@ module.exports = function (ctx, container, options, done) {
             return done(err);
         }
         var sandbox = container.sandbox;
-        dust.render('configs-findone', serand.pack({
+        dust.render('model-configs-findone', serand.pack({
             name: data.name
         }, container), function (err, out) {
             if (err) {
@@ -45,7 +45,7 @@ module.exports = function (ctx, container, options, done) {
             editor.setValue(JSON.stringify(data.value, null, 2), -1);
             done(null, {
                 clean: function () {
-                    $('.configs-findone', sandbox).remove();
+                    $('.model-configs-findone', sandbox).remove();
                 },
                 ready: function () {
 
