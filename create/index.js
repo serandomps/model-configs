@@ -130,7 +130,7 @@ var render = function (ctx, container, options, config, done) {
                     if (err) {
                         return console.error(err);
                     }
-                    serand.redirect(options.location ||'/configs');
+                    serand.redirect(options.location || '/configs');
                 });
             });
             sandbox.on('click', '.cancel', function (e) {
