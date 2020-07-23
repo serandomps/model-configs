@@ -7,7 +7,7 @@ dust.loadSource(dust.compile(require('./template.html'), 'model-configs-findone'
 var findOne = function (id, done) {
     $.ajax({
         method: 'GET',
-        url: utils.resolve('www:///apis/v/configs/' + id),
+        url: utils.resolve('apis:///v/configs/' + id),
         dataType: 'json',
         success: function (data) {
             done(null, data);

@@ -80,7 +80,7 @@ var create = function (configsForm, config, done) {
                     }
                 });
                 var actions = config ? ['unpublish', 'edit', 'review', 'approve', 'publish'] : ['review', 'approve', 'publish'];
-                utils.traverse('www', 'configs', actions, config, {
+                utils.traverse('configs', actions, config, {
                     creator: function (created) {
                         Configs.create(o, created);
                     }
